@@ -77,7 +77,7 @@ Los apuntadores nos permiten almacenar elementos en el heap (memoria dinámica) 
 	 }
 	 cout << p[n] << "\n";
 /*
-Un uso práctico de apuntadores es cuando tenemos un arreglo que es demasiado grande para c (generaría un stack overflow), lo que hacesmo es lo guardamos en un apuntador de tal forma que se guarde en el heap, el cual está limitado por la memoria de la computadora.
+Un uso práctico de apuntadores es cuando tenemos un arreglo que es demasiado grande para c (generaría un stack overflow), lo que hacemos es lo guardamos en un apuntador de tal forma que se guarde en el heap, el cual está limitado por la memoria de la computadora.
 */
 	// int crash[100000000];  // Esta linea rompe el programa en tiempo de ejecucion porque c no puede crear un arreglo de ese tamaño en el stack
 	int *c = new int[10000000];  //
