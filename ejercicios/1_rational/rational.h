@@ -1,4 +1,4 @@
-/*
+ /*
  * rational.h
  *
  *  Created on: 05/08/2015
@@ -70,16 +70,11 @@ std::string Rational::toString() const {
 	return aux.str();
 }
 
-void Rational::operator= (const Rational &right) {
-}
-
-void Rational::operator+= (const Rational &right) {
-}
-
 Rational::operator double () const {
 	return 0.0;
 }
 
+//Greatest common divisor
 int gcd(int a, int b) {
 	int aux;
 
@@ -92,6 +87,12 @@ int gcd(int a, int b) {
 }
 
 void Rational::normalize() {
+}
+
+void Rational::operator= (const Rational &right) {
+}
+
+void Rational::operator+= (const Rational &right) {
 }
 
 Rational operator+ (const Rational &left, const Rational &right) {

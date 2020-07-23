@@ -1,2 +1,2 @@
 language = "cpp"
-run = "g++ ejemplos_basicos/io.cpp; ./a.out"
+run = "g++ soluciones/1_rational/main.cpp; ./a.out"
