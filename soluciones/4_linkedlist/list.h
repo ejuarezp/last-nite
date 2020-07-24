@@ -61,8 +61,8 @@ public:
 	void addAfter(ListIterator<T>&, T) throw (IllegalAction, OutOfMemory);
 	T    removeCurrent(ListIterator<T>&) throw (IllegalAction);
 
-	bool set(int, T) throw (IndexOutOfBounds);
-	int  indexOf(T) const;
+	bool set(unsigned int, T) throw (IndexOutOfBounds);
+	unsigned int  indexOf(T) const;
 	int  lastIndexOf(T) const;
 	T    remove(int) throw (IndexOutOfBounds);
 	bool removeFirstOcurrence(T);
