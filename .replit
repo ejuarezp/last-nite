@@ -1,2 +1,2 @@
 language = "cpp"
-run = "g++ soluciones/4_linkedlist/main.cpp; ./a.out"
+run = "g++ main.cpp; ./a.out"
