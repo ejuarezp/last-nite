@@ -1,5 +1,5 @@
 # last-nite
-Código de apoyo al curso de Estructuras de datos
+Código de apoyo al curso de Estructuras de datos versión agosto-diciembre 2020
 
 ## Para compilar
 1. Ve a tu archivo  `.replit`
