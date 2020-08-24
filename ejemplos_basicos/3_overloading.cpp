@@ -22,13 +22,19 @@ class Port{
 /*
 * sobrecarga de * para multipliación entre objetos.
 */
-
 Port Port::operator * (const Port & param){
   Port temp;
   temp.priv1 = priv1 * param.priv1;
   temp.priv2 = priv2 * param.priv2;
   temp.pub1 = pub1 * param.pub1;
   temp.pub2 = pub2 * param.pub2;
+  return temp;
+}
+
+Port operator * (const int left, const Port & right){
+  Port temp;
+  temp.pub1 = left * right.pub1;
+  temp.pub2 = left * right.pub2;
   return temp;
 }
 
@@ -75,6 +81,7 @@ int main () {
   Port luis;
   //  luis = hugo.operator*(paco);
   luis = hugo * paco;
+  luis = 2 * paco;
   cout << hugo.get_priv1() << ',' << hugo.get_priv2() << ',' << hugo.pub1 << ',' << hugo.pub2 << '\n' ;
   cout << paco.get_priv1() << ',' << paco.get_priv2() << ',' << paco.pub1 << ',' << paco.pub2 << '\n' ;
   cout << luis.get_priv1() << ',' << luis.get_priv2() << ',' << luis.pub1 << ',' << luis.pub2 << '\n' ;

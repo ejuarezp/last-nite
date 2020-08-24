@@ -30,6 +30,7 @@ public:
 	std::string toString() const;
 
 	void operator=   (const Rational&);
+  void operator=   (const int);
 	void operator+=  (const Rational&);
 
 	operator double () const;
@@ -53,6 +54,7 @@ Rational::Rational(int num, int dem){
         numerator = num;
         denominator = dem;
     }
+    normalize();
 }
 
 int Rational::getNumerator() const {
@@ -87,15 +89,26 @@ int gcd(int a, int b) {
 }
 
 void Rational::normalize() {
+  if (denominator == 0) {
+    throw RangeError();
+  }
 }
 
+//Rational r = objeto_rational
 void Rational::operator= (const Rational &right) {
+}
+
+//Ration r = 5;
+void Rational::operator= (const int i) {
+  numerator = i;
+  denominator = 1;
 }
 
 void Rational::operator+= (const Rational &right) {
 }
 
 Rational operator+ (const Rational &left, const Rational &right) {
+  
 	return Rational();
 }
 

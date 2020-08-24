@@ -24,6 +24,7 @@ public:
 		ASSERT_TRUE(!strcmp("20:13", Timer(20, 13).toString().c_str()));
 		std::cout << " PASSED.\nTest 3";
 		
+    //std::cout << "Mi resultado: " << Timer(0, 119).toString().c_str() <<  std::endl;
 		/* TEST 3 */
 		ASSERT_TRUE(!strcmp("01:59", Timer(0, 119).toString().c_str()));
 		std::cout << " PASSED.\nTest 4";

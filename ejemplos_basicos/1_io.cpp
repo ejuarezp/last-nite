@@ -25,7 +25,7 @@ int main() {
   cin >> actividad;
 
   //Para concatenar
-  cout << actividad << "o k ase?" << endl;
+  cout << actividad << " o k ase?" << endl;
 
   //Para imprimir en los logs de información
   clog << "INFO: Ejecución de io finalizada" << endl;

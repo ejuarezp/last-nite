@@ -2,7 +2,7 @@
 using namespace std;
 
 
-class fatherland{
+class fatherland {
 	private:
 		int var1;
 		int var2;
@@ -11,20 +11,24 @@ class fatherland{
 		fatherland() {};
 		fatherland(int x, int y): var1(x), var2(y){}; 
 		fatherland fathersum( const fatherland, const fatherland);
-		fatherland addvals(const fatherland a, const fatherland b);  // declared friend means it can access the private vars.
+		fatherland addvals(const fatherland a, const fatherland b);  
+    // declared friend means it can access the private vars.
 		friend fatherland addvals(const fatherland &a, const fatherland &b);  // declared friend means it can access the private vars, if friend was removed then there would be no acces to the variables.
 		void print(){cout<< "var  "<< var1 <<  " var  " << var2 << endl;}
+
 };
 
-fatherland addvals(const fatherland &a, const fatherland &b) {  //non-member function, needs to be delcared friens to access variables
-	fatherland c(a.var1+b.var1, a.var2+b.var2); 
+fatherland addvals(const fatherland &a, const fatherland &b) {  //non-member function, needs to be delcared friends to access variables
+  int var_1 = a.var1 + b.var1;
+  int var_2 = a.var2 + b.var2;
+	fatherland c(var_1, var_2); 
 	return c;
 }
 
 fatherland fatherland::fathersum(fatherland a, fatherland b){ // member function
 	fatherland c;
 	c.var1 = a.var1+b.var1;
-	a.var1= 10000;
+	a.var1 = 10000;
 	c.var2 = a.var2+b.var2;
 	return c;
 }
@@ -38,7 +42,7 @@ int main(){
 	urss.print();
 	mex.print();
 	mex = addvals(mex,urss);
-	mex.print();
+	mex.print(); 
 }
 
 

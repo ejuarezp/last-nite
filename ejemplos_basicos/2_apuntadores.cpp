@@ -61,7 +61,7 @@ Paso con de apuntadores a funciones, las funciones pueden recibir o devolver apu
 
 	 
 /*
-Los apuntadores nos permiten almacenar elementos en el heap (memoria dinámica) esto nos da acceso a guardar objetos más grandes de los que se definen por los tipos base de c. Para hacer uso de este espacio es común usar la función malloc que reserva espacion en la memoria dinámica. 
+Los apuntadores nos permiten almacenar elementos en el heap (memoria dinámica) esto nos da acceso a guardar objetos más grandes de los que se definen por los tipos base de c. Para hacer uso de este espacio es común usar la función malloc que reserva espacio en la memoria dinámica. 
 */
 	
 	 int *p, *q, n; //creo apuntadores y variabe para longitud
@@ -76,12 +76,15 @@ Los apuntadores nos permiten almacenar elementos en el heap (memoria dinámica) 
 		cout << p[i]<< " ";
 	 }
 	 cout << p[n] << "\n";
+   free(p);
+   p = NULL;
 /*
 Un uso práctico de apuntadores es cuando tenemos un arreglo que es demasiado grande para c (generaría un stack overflow), lo que hacemos es lo guardamos en un apuntador de tal forma que se guarde en el heap, el cual está limitado por la memoria de la computadora.
 */
 	// int crash[100000000];  // Esta linea rompe el programa en tiempo de ejecucion porque c no puede crear un arreglo de ese tamaño en el stack
 	int *c = new int[10000000];  //
 	free(c); //libera la memoria en el heap
+  
 }
 
 // parametros por valor o copia, los valores de a y b no se modifican
