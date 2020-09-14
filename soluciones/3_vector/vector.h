@@ -2,8 +2,8 @@
 #define VECTOR_H_
 #include "exception.h"
 #include <sstream>
-template <class T>
-class Vector {
+
+template <class T> class Vector {
 private:
 	unsigned int size;
 	T	*data;
@@ -33,6 +33,7 @@ template <class T> Vector<T>::Vector(unsigned int numberOfElements) throw (Range
 		throw OutOfMemory();
 	}
 }
+
 template <class T> Vector<T>::Vector(unsigned int numberOfElements, T &initialValue) throw (RangeError, OutOfMemory) {
 	if (numberOfElements == 0) {
 		throw RangeError();
@@ -58,9 +59,10 @@ template <class T> Vector<T>::Vector(const Vector<T> &source) throw (OutOfMemory
 		data[i] = source.data[i];
 	}
 }
+
 template <class T> Vector<T>::~Vector() {
 	delete [] data;
-	data = 0;
+	data = NULL;
 	size = 0;
 }
 

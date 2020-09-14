@@ -1,4 +1,4 @@
-/*
+ /*
  * linkedlist.h
  *
  *  Created on: 05/08/2015
@@ -30,13 +30,23 @@ private:
 };
 
 template <class T>
-Link<T>::Link(T val) {}
+Link<T>::Link(T val) {
+  value = val;
+  next = NULL;
+}
 
 template <class T>
-Link<T>::Link(T val, Link* nxt) {}
+Link<T>::Link(T val, Link* nxt) {
+  value = val;
+  next = nxt;
+
+}
 
 template <class T>
-Link<T>::Link(const Link<T> &source) {}
+Link<T>::Link(const Link<T> &source) {
+  value = source.val;
+  next = source.next;
+}
 
 template <class T>
 class List {
@@ -76,20 +86,58 @@ private:
 };
 
 template <class T>
-List<T>::List(){}
-
-template <class T>
-List<T>::~List() {
+List<T>::List(){
+  head = NULL;
+  size = 0;
 }
 
 template <class T>
+List<T>::~List() {
+  clear();
+  head = NULL;
+  size = 0;
+}
+
+/**
+ * Regresa verdadero si la lista está vacía, 
+ * de lo contrario regresa falso
+ * @return true: si la lista está vacía
+ * @return false: si la lista no está vacía
+ */
+template <class T>
 bool List<T>::empty() const {
+  if (head == NULL) {
+    return true;
+  } 
 	return false;
+
+  //Alternativa
+  if (size == 0) {
+    return true;
+  }
+  return false;
 }
 
 template <class T>
 int List<T>::length() const {
-	return 0;
+  
+  int i = 0;
+  
+  if(head == NULL) {
+    return i;
+  }
+
+  Link<T> * apuntador = head;
+  i++;
+
+  while (apuntador->next != NULL) {
+    apuntador = apuntador->next;
+    i++;
+  } 
+  return i;
+
+  //Alternativa
+	return size;
 }
 
 template <class T>
@@ -104,10 +152,51 @@ T List<T>::getFirst() const throw (NoSuchElement) {
 
 template <class T>
 void List<T>::addFirst(T val) throw (OutOfMemory) {
+  //Crear nuevo nodo con el valor val
+  Link<T> * nuevo = new Link<T>(val);
+
+  if(nuevo == NULL) {
+    throw OutOfMemory();
+  }
+  
+  //Apuntar el siguiente del nuevo nodo a head
+  nuevo->next = head;
+
+  //head apuntarlo al nuevo nodo
+  head = nuevo;
+
+  //incrementar el tamaño
+  size++;
 }
 
 template <class T>
 void List<T>::add(T val) throw (OutOfMemory) {
+  //Si la lista está vacía, agregar al principio
+  if (empty()) {
+    addFirst(val);
+    return;
+  }
+  
+  //Crear un nuevo nodo
+  Link<T> * nuevo = new Link<T>(val);
+
+  if(nuevo == NULL) {
+    throw OutOfMemory();
+  }
+
+  //Crear un apuntador actual
+  Link<T> * actual = head;
+
+  //Recorrer la lista hasta llegar al final
+  while (actual->next != NULL) {
+    actual = actual->next;
+  }
+
+  //Apuntar actual al nuevo nodo
+  actual->next = nuevo;
+
+  //Aumentar el tamaño de la lista
+  size++;
 }
 
 template <class T>
@@ -144,6 +233,24 @@ std::string List<T>::toString() const {
 
 template <class T>
 List<T>::List(const List<T> &source) throw (OutOfMemory) {
+  
+  head = NULL;
+  size = 0;
+
+  //Si la lista está vacía
+  if(source.empty()) {
+    return;
+  }
+  
+  //Recorrer la lista source
+  Link<T> * actual = source.head;
+
+  //Por cada nodo que se visita, crear un nuevo nodo al final
+  while(actual != NULL) {
+    add(actual->value);
+    actual = actual->next;
+  }
+
 }
 
 template <class T>

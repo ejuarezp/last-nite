@@ -213,6 +213,7 @@ public:
 		ASSERT_TRUE(false == b1.removeLastOcurrence(100));
 		std::cout << " PASSED.\nTest 36";
 		
+
 		/* TEST 36 */
 		DListIterator<int> itr1(&b1);
 		itr1.begin();

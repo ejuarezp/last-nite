@@ -12,6 +12,7 @@
 class VectorTest : public UnitTest {
 public:
 	void runTest() {
+    
 		int val = 1;
 		UnitTest::total_test = 12;
 		
